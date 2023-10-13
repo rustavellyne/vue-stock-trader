@@ -1,28 +1,77 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="app">
+      <div class="container">
+        <nav-bar class="app__navbar" />
+        <main>
+            <router-view></router-view>
+        </main>
+      </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import NavBar from './components/NavBar.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+      NavBar,
+  },
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+    margin: 10px auto;
+    max-width: 1280px;
+    padding: 0 20px;
+}
+.app {
+    &__navbar {
+        margin-top: 30px;
+    }
+    .home-page {
+        margin-top: 40px;
+    }
+    .portfolio-page,
+    .stocks-page {
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+    .router-link-active {
+        background-color: lightgrey;
+    }
+    .main-logo {
+        cursor: pointer;
+        padding: 20px 20px;
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            background: lightgrey;
+        }
+    }
 }
 </style>
